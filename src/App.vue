@@ -42,9 +42,8 @@
               <div class="s-logo-wrapper bg-white rounded mt-2 px-2 py-2 overflow-hidden">
                 <div class="flex flex-wrap justify-around items-center">
                   <div
-                    class="lg:w-40 lg:h-40 w-32 h-32 s-logo lg:m-4 m-2 flex items-center justify-center cursor-pointer"
+                    class="lg:w-40 lg:h-40 w-32 h-32 s-logo lg:m-4 m-2 flex items-center justify-center"
                     v-for="(logo, index) in supermarketLogos"
-                    v-scroll-to="'#sm-' + index"
                     :key="index"
                   >
                     <img :src="logo.logo" class="w-full s-logo" :alt="logo.name" />
