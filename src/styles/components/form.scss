@@ -1,0 +1,89 @@
+/* Form */
+.form-container {
+  @apply z-10 px-4 py-4 mb-8 mx-auto;
+  max-width: 580px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  &.form-container--sticky {
+    position: relative;
+    @supports (position: sticky) {
+      position: sticky;
+      top: 1vh;
+    }
+  }
+  input,
+  textarea,
+  select,
+  label,
+  button {
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  input:checked + svg {
+    display: block;
+  }
+}
+
+.form-body {
+  @apply border bg-white px-2 py-4 rounded shadow overflow-hidden;
+}
+
+.form-label {
+  @apply w-full text-gray-500 text-xs;
+  padding: 0 0.5rem;
+}
+
+.form-row {
+  @apply relative w-full mb-4;
+}
+
+/*
+.en__field--lastName {
+  float: left;
+  width: calc(50% - 10px);
+  margin-right: 10px;
+}
+
+.en__field--firstName {
+  float: right;
+  width: 50%;
+}
+*/
+
+.form-input {
+  @apply border w-full bg-gray-100 text-base appearance-none outline-none rounded py-2 px-2;
+}
+
+.form-input:hover {
+  @apply bg-white border-gpgreen;
+}
+
+.form-input.form-input--valid {
+  @apply border-green-500;
+}
+
+.form-input.form-input--invalid {
+  @apply border-red-500;
+}
+
+.form-input:focus:active {
+  @apply bg-white border-gpgreen;
+}
+
+.form-message {
+  @apply mt-2 text-gray-500;
+  font-size: 14px;
+}
+
+.form-warning {
+  @apply text-red-500;
+  font-size: 14px;
+}
+
+.form-button {
+  @apply tracking-wider text-white text-xl shadow block w-full bg-gporange text-center font-bold py-2 px-4 rounded;
+}
+.form-button:hover {
+  @apply shadow-xl bg-gporangelight;
+}

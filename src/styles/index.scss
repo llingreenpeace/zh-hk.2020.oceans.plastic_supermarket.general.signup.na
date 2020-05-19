@@ -1,0 +1,103 @@
+/*
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;700&family=Noto+Sans+TC:wght@300;400;700&display=swap");
+*/
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap");
+@import "flexboxgrid/css/flexboxgrid.min.css";
+//
+@import "./utilities/enform.scss";
+//
+@tailwind base;
+@tailwind components;
+@import "./components/index";
+:root {
+  --gpgreen: #66cc00;
+  --mred: #c9213a;
+  --myellow: #fbed01;
+  --mblue: #033e5a;
+  --mgreen: #80c342;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.header {
+  z-index: 1010;
+}
+
+.footer {
+  z-index: 1010;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid {
+  display: grid;
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 380px;
+  }
+  @media (min-width: 1280px) {
+    grid-template-columns: 1fr 420px;
+  }
+}
+
+.text--mred {
+  color: var(--mred);
+}
+
+.aside-enform {
+  background-color: var(--mred);
+  z-index: 99;
+}
+
+.mobile-button {
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 -4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.absolute-full {
+  @apply absolute top-0 left-0 w-full h-full;
+}
+
+.hero-heading {
+  @apply p-40;
+  line-height: 1;
+}
+
+.hero-banner {
+  @apply bg-cover bg-center bg-no-repeat;
+}
+
+.text {
+  @apply text-base tracking-wide mb-4;
+}
+
+.external-link {
+  @apply underline text-blue-500;
+}
+.external-link:hover {
+  @apply text-blue-400;
+}
+/**
+ * This injects Tailwind's utility classes and any utility classes registered
+ * by plugins.
+ */
+@tailwind utilities;
+// @import './utilities/index';

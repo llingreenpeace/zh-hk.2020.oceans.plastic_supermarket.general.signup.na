@@ -1,0 +1,148 @@
+/* EN FORM */
+@import url("https://act.greenpeace.org/ea-demo/frontend/pbAssets/build/css/enPage.css?v=3.55.0");
+.en__field__element--calendar,
+.en__field__element--checkbox,
+.en__field__element--email,
+.en__field__element--number,
+.en__field__element--password,
+.en__field__element--radio,
+.en__field__element--range,
+.en__field__element--rating,
+.en__field__element--select,
+.en__field__element--splitselect,
+.en__field__element--splittext,
+.en__field__element--telephone,
+.en__field__element--text,
+.en__field__element--textarea,
+.en__field__element--tripleselect,
+.en__field__element--tripletext,
+.en__field__item {
+  display: block !important;
+}
+.en__field__input--calendar,
+.en__field__input--email,
+.en__field__input--number,
+.en__field__input--password,
+.en__field__input--range,
+.en__field__input--telephone,
+.en__field__input--text,
+.en__field__input--textarea,
+.en__rangeFieldLabels {
+  width: 100% !important;
+}
+.en__captcha,
+.en__field {
+  padding-bottom: 0 !important;
+}
+.enform .en__field--lastName {
+  margin-right: 10px;
+}
+.enform .en__field--firstName,
+.enform .en__field--lastName {
+  display: inline-block;
+  width: calc(50% - 8px) !important;
+}
+.en__field__input--select {
+  background-repeat: no-repeat;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNNyAxMGw1IDUgNS01eiIvPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz48L3N2Zz4=);
+  background-repeat: no-repeat;
+  background-size: 24px auto;
+  background-position: calc(100% - 5px) 50%;
+}
+.en__field--email-ok-hongkong
+  .en__field__item
+  [type="checkbox"]:checked
+  + label,
+.en__field--email-ok-hongkong
+  .en__field__item
+  [type="checkbox"]:not(:checked)
+  + label {
+  padding-left: 20px;
+}
+.en__field--email-ok-hongkong {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  .en__field__label {
+    display: none;
+  }
+  .en__field__item {
+    [type="checkbox"] {
+      &:checked,
+      &:not(:checked) {
+        position: absolute;
+        left: -9999px;
+      }
+      &:checked + label,
+      &:not(:checked) + label {
+        position: relative;
+        padding-left: 20px;
+        font-size: 12px;
+        color: #6f6f6f;
+        cursor: pointer;
+        display: inline-block;
+        &:before,
+        &:after {
+          content: "";
+          position: absolute;
+          left: 0px;
+          top: 1px;
+          width: 13px;
+          height: 13px;
+        }
+        &:before {
+          border: 1px solid #ddd;
+          background: #fff;
+        }
+        &:after {
+          background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAQAAABuW59YAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAB2SURBVHjaAGkAlv8A3QDyAP0A/QD+Dam3W+kCAAD8APYAAgTVZaZCGwwA5wr0AvcA+Dh+7UX/x24AqK3Wg/8nt6w4/5q71wAAVP9g/7rTXf9n/+9N+AAAtpJa/zf/S//DhP8H/wAA4gzWj2P4lsf0JP0A/wADAHB0Ngka6UmKAAAAAElFTkSuQmCC");
+          background-repeat: no-repeat;
+          background-position: center;
+          transition: opacity 0.2s;
+          transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+        }
+      }
+      &:not(:checked) + label:after {
+        opacity: 0;
+      }
+      &:checked + label:after {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+.en__errorList {
+  -webkit-padding-start: 0px;
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+}
+.en__field__error {
+  font-size: 10px;
+  color: #ff6666;
+  position: absolute;
+  left: 0.5rem;
+  bottom: -1rem;
+}
+.eaErrorMessage {
+  text-align: left;
+  padding-left: 8px;
+  margin: 8px 0;
+}
+.eaErrorMessageHeader {
+  outline: none;
+  display: none;
+}
+.eaErrorMessageList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+.eaErrorMessageList > li {
+  color: #ff6666;
+}
+.eaErrorMessageList > li > a {
+  color: #ff6666;
+  text-decoration: none;
+  pointer-events: none;
+  cursor: text;
+}

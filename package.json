@@ -1,0 +1,39 @@
+{
+  "name": "gpea-hongkong-welcome_plastic_supermarket",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "deploy": "yarn build && gpea-npm-en-uploader"
+  },
+  "dependencies": {
+    "@tailwindcss/custom-forms": "^0.2.1",
+    "autoprefixer": "^9.7.6",
+    "core-js": "^3.6.4",
+    "flexboxgrid": "^6.3.1",
+    "gpea-npm-en-uploader": "greenpeace/gpea-npm-en-uploader",
+    "normalize.css": "^8.0.1",
+    "nprogress": "^0.2.0",
+    "postcss": "^7.0.29",
+    "postcss-import": "^12.0.1",
+    "postcss-modules": "^2.0.0",
+    "tailwindcss": "^1.4.5",
+    "vue": "^2.6.11",
+    "vue-scrollto": "^2.18.1",
+    "vue2-transitions": "^0.3.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.3.0",
+    "@vue/cli-plugin-eslint": "~4.3.0",
+    "@vue/cli-service": "~4.3.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
