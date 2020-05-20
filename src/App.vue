@@ -53,8 +53,8 @@
             </div>
           </section>
           <section class="px-4 py-4">
-            <div class="row mb-4 md:mb-8">
-              <div class="col-xs-12 col-md-7 col-lg-6">
+            <div class="row md:mb-8">
+              <div class="col-xs-12 col-lg-6">
                 <p
                   class="text"
                 >每年，香港有至少112噸塑膠包裝垃圾流入海洋。超市即棄包裝是塑膠污染的主要源頭之一；這些垃圾入侵食物鏈，您我日常進食的海鮮、食鹽亦無一倖免，暗藏微塑膠！</p>
@@ -63,22 +63,22 @@
                   <strong>當中惠康和百佳同屬超市龍頭，但前者的走塑資訊透明度低，欠缺創新走塑政策，走塑表現比百佳較遜色。</strong>
                 </p>
               </div>
-              <div class="col-xs-12 col-md-5 col-lg-6">
+              <div class="px-2 py-2 col-xs-12 col-lg-6">
                 <img src="../src/assets/R0032756.jpg" alt class="w-full" />
               </div>
             </div>
             <div class="row mb-8">
-              <div class="col-xs-12 col-md-5 col-lg-6">
+              <div class="col-xs-12 col-md-6 col-xl-5">
                 <div class="row">
-                  <div class="mb-4 col-xs-6 col-md-12">
+                  <div class="px-2 py-2 mb-4 col-xs-6 col-md-12">
                     <img src="../src/assets/R0032663_nologo.jpg" alt class="w-full" />
                   </div>
-                  <div class="mb-4 col-xs-6 col-md-12">
+                  <div class="px-2 py-2 mb-4 col-xs-6 col-md-12">
                     <img src="../src/assets/R0032723.jpg" alt class="w-full" />
                   </div>
                 </div>
               </div>
-              <div class="col-xs-12 col-md-7 col-lg-6">
+              <div class="col-xs-12 col-md-6 col-xl-7">
                 <p
                   class="text"
                 >超市每天售賣無數食材、飲品、日常用品，大部分產品都預先包裝，令顧客「冇得揀」。然而，根據我們的評估和海外經驗，超市絕對有能力改變其貨品包裝及銷售模式，減少無謂包裝。</p>
@@ -91,7 +91,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-xs-12 col-md-6">
+              <div class="col-xs-12 col-md-6 mb-4">
                 <h3 class="text-xl font-bold">立即聯署要求超市：</h3>
                 <ul class="text-sm mt-4 list-disc list-inside">
                   <li class="mb-2">立刻減少無謂包裝，設立無塑購物區域或裸買補充站，增加售賣裸裝產品比例</li>
@@ -100,7 +100,7 @@
                   <li class="mb-2">以「可循環再用」為原則，發展並向員工及公眾推廣可大規模實行的走塑方案</li>
                 </ul>
               </div>
-              <div class="col-xs-12 col-md-6">
+              <div class="col-xs-12 col-md-6 mb-4">
                 <h3 class="text-xl font-bold">我們亦要求政府：</h3>
                 <ul class="text-sm mt-4 list-disc list-inside">
                   <li class="mb-2">設立生產者責任制，從源頭管制即棄塑膠，包括塑膠包裝、即棄餐具、微膠珠等</li>
