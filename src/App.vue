@@ -144,7 +144,7 @@
                 若想瞭解更多，請
                 <a
                   class="external-link"
-                  href="https://issuu.com/greenpeacechina/docs/2020_gp_hk_supermarket_plastics"
+                  href="https://www.greenpeace.org/hongkong/issues/plastics/update/18618/%e9%82%8a%e9%96%93%e8%b6%85%e5%b8%82%ef%bc%8c%e8%b5%b0%e5%a1%91%e8%a1%a8%e7%8f%be%e6%9c%80%e4%bb%a4%e4%ba%ba%e3%80%8c%e8%b7%8c%e7%9c%bc%e9%8f%a1%e3%80%8d/?ref=petition_link"
                   target="_blank"
                   rel="noopener noreferrer"
                 >點擊此處</a>查看完整報告。
@@ -165,6 +165,15 @@
                   class="font-normal text-sm"
                 >一同發聲，要求包括龍頭惠康在內的超市回應你的訴求：制定完整減塑藍圖、發展可重用包裝銷售模式、淘汰無謂塑膠包裝，並提供走塑購物選項，讓你「有得揀」。</p>
               </div>
+              <div class="enform-progress my-4">
+                <div class="overflow-hidden rounded shadow w-full bg-gray-200">
+                  <div
+                    class="transition-all font-bold text-white bg-gporangelight py-1 text-center"
+                    v-bind:style="{width: `${this.signupProgress}%` }"
+                    v-show="this.participants && this.goal"
+                  >{{this.participants.toLocaleString()}} 人已聯署</div>
+                </div>
+              </div>
               <div class="form-body enform"></div>
             </div>
           </aside>
@@ -173,6 +182,9 @@
       <div
         class="mobile-button md:hidden tracking-wide shadow overflow-hidden fixed w-full flex items-center justify-center px-4 py-2"
       >
+        <div class="scroll-indicator">
+          <div class="progress-bar" v-bind:style="{width: `${this.scrollDepth}%` }"></div>
+        </div>
         <button class="form-button" v-scroll-to="'#enform'">{{ mobileBtnText }}</button>
       </div>
     </main>
@@ -328,13 +340,10 @@ export default {
       currentPage: 0,
       showMobileButton: true,
       showFormModal: true,
-      formSumitted: false
+      formSumitted: false,
+      participants: 0,
+      goal: 0
     };
-  },
-  computed: {
-    mobileBtnText() {
-      return this.formSubmitted ? "感謝您聯署超市走塑" : "立即聯署";
-    }
   },
   methods: {
     scrollIntoView(evt) {
@@ -350,6 +359,22 @@ export default {
       this.isMobile = isMobile;
       return isMobile;
     },
+    getDocumentHeight() {
+      return Math.max(
+        document.body.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.clientHeight,
+        document.documentElement.scrollHeight,
+        document.documentElement.offsetHeight
+      );
+    },
+    getWindowHeight() {
+      return (
+        window.innerHeight ||
+        document.documentElement.clientHeight ||
+        document.getElementsByTagName("body")[0].clientHeight
+      );
+    },
     getScrollTop() {
       return window.pageYOffset !== undefined
         ? window.pageYOffset
@@ -364,7 +389,23 @@ export default {
       this.scrollDepth = Math.round(scroll * 100);
     }
   },
+  computed: {
+    mobileBtnText() {
+      return this.formSubmitted ? "感謝您聯署超市走塑" : "立即聯署";
+    },
+    innerHeight() {
+      return this.getDocumentHeight() - this.getWindowHeight();
+    },
+    signupProgress() {
+      return this.participants
+        ? Math.round((this.participants / this.goal) * 100)
+        : 0;
+    }
+  },
   created() {
+    NProgress.start();
+    window.addEventListener("scroll", this.handleScroll);
+    //
     const page = window.pageJson.pageNumber;
     this.currentPage = page;
     if (page == 2) {
@@ -385,9 +426,37 @@ export default {
     createBirthYearList();
     appendForm();
     decorForm();
+    //
+    const widgetEndPoint =
+      "https://cors-anywhere.small-service.gpeastasia.org/https://act.greenpeace.org/page/widget/434094";
+    fetch(widgetEndPoint)
+      .then(resp => resp.json())
+      .then(data => {
+        let campaignList = data.data.rows;
+        let totalRegistration = 0;
+        campaignList.forEach(campaign => {
+          totalRegistration =
+            totalRegistration + parseInt(campaign.columns[4].value);
+        });
+        this.participants = totalRegistration;
+        return data.jsonContent;
+      })
+      .then(jsonContent => {
+        this.goal = JSON.parse(jsonContent).goal;
+        // console.log(this.participants);
+        // console.log(this.goal);
+        // console.log(this.signupProgress);
+      })
+      .catch(error => {
+        this.participants = 0;
+      });
     this.$nextTick(() => {
       NProgress.done();
     });
+  },
+  destroyed() {
+    document.removeEventListener("scroll", this.handleScroll);
+    alert("Please refresh the page");
   }
 };
 </script>
