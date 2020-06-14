@@ -1,19 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script>
-      //Campaign Information
-      window.dataLayer = window.dataLayer || [];
-      dataLayer.push({
-        gBasket: "Good Life",
-        gCampaign: "Plastics Free Future",
-        gScope: "Global",
-        gDepartment: "Campaign",
-      });
-    </script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-    </script>
+    <!-- Anti-flicker snippet (recommended)  -->
     <style>
       .async-hide {
         opacity: 0 !important;
@@ -22,6 +10,7 @@
     <script>
       (function(a, s, y, n, c, h, i, d, e) {
         s.className += " " + y;
+        h.start = 1 * new Date();
         h.end = i = function() {
           s.className = s.className.replace(RegExp(" ?" + y), "");
         };
@@ -30,8 +19,18 @@
           i();
           h.end = null;
         }, c);
+        h.timeout = c;
       })(window, document.documentElement, "async-hide", "dataLayer", 4000, {
         "GTM-M6LZL75": true,
+      });
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      dataLayer.push({
+        gBasket: "Good Life",
+        gCampaign: "Plastics Free Future",
+        gScope: "Global",
+        gDepartment: "Campaign",
       });
     </script>
     <script>

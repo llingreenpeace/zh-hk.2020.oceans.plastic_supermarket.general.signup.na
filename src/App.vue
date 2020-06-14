@@ -42,9 +42,8 @@
               <div class="s-logo-wrapper bg-white rounded mt-2 px-2 py-2 overflow-hidden">
                 <div class="flex flex-wrap justify-around items-center">
                   <div
-                    class="lg:w-40 lg:h-40 w-32 h-32 s-logo lg:m-4 m-2 flex items-center justify-center cursor-pointer"
+                    class="lg:w-40 lg:h-40 w-32 h-32 s-logo lg:m-4 m-2 flex items-center justify-center"
                     v-for="(logo, index) in supermarketLogos"
-                    v-scroll-to="'#sm-' + index"
                     :key="index"
                   >
                     <img :src="logo.logo" class="w-full s-logo" :alt="logo.name" />
@@ -54,8 +53,8 @@
             </div>
           </section>
           <section class="px-4 py-4">
-            <div class="row mb-4 md:mb-8">
-              <div class="col-xs-12 col-md-7 col-lg-6">
+            <div class="row md:mb-8">
+              <div class="col-xs-12 col-lg-6">
                 <p
                   class="text"
                 >每年，香港有至少112噸塑膠包裝垃圾流入海洋。超市即棄包裝是塑膠污染的主要源頭之一；這些垃圾入侵食物鏈，您我日常進食的海鮮、食鹽亦無一倖免，暗藏微塑膠！</p>
@@ -64,22 +63,22 @@
                   <strong>當中惠康和百佳同屬超市龍頭，但前者的走塑資訊透明度低，欠缺創新走塑政策，走塑表現比百佳較遜色。</strong>
                 </p>
               </div>
-              <div class="col-xs-12 col-md-5 col-lg-6">
+              <div class="px-2 py-2 col-xs-12 col-lg-6">
                 <img src="../src/assets/R0032756.jpg" alt class="w-full" />
               </div>
             </div>
             <div class="row mb-8">
-              <div class="col-xs-12 col-md-5 col-lg-6">
+              <div class="col-xs-12 col-md-6 col-xl-5">
                 <div class="row">
-                  <div class="mb-4 col-xs-6 col-md-12">
+                  <div class="px-2 py-2 mb-4 col-xs-6 col-md-12">
                     <img src="../src/assets/R0032663_nologo.jpg" alt class="w-full" />
                   </div>
-                  <div class="mb-4 col-xs-6 col-md-12">
+                  <div class="px-2 py-2 mb-4 col-xs-6 col-md-12">
                     <img src="../src/assets/R0032723.jpg" alt class="w-full" />
                   </div>
                 </div>
               </div>
-              <div class="col-xs-12 col-md-7 col-lg-6">
+              <div class="col-xs-12 col-md-6 col-xl-7">
                 <p
                   class="text"
                 >超市每天售賣無數食材、飲品、日常用品，大部分產品都預先包裝，令顧客「冇得揀」。然而，根據我們的評估和海外經驗，超市絕對有能力改變其貨品包裝及銷售模式，減少無謂包裝。</p>
@@ -92,7 +91,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-xs-12 col-md-6">
+              <div class="col-xs-12 col-md-6 mb-4">
                 <h3 class="text-xl font-bold">立即聯署要求超市：</h3>
                 <ul class="text-sm mt-4 list-disc list-inside">
                   <li class="mb-2">立刻減少無謂包裝，設立無塑購物區域或裸買補充站，增加售賣裸裝產品比例</li>
@@ -101,7 +100,7 @@
                   <li class="mb-2">以「可循環再用」為原則，發展並向員工及公眾推廣可大規模實行的走塑方案</li>
                 </ul>
               </div>
-              <div class="col-xs-12 col-md-6">
+              <div class="col-xs-12 col-md-6 mb-4">
                 <h3 class="text-xl font-bold">我們亦要求政府：</h3>
                 <ul class="text-sm mt-4 list-disc list-inside">
                   <li class="mb-2">設立生產者責任制，從源頭管制即棄塑膠，包括塑膠包裝、即棄餐具、微膠珠等</li>
@@ -145,7 +144,7 @@
                 若想瞭解更多，請
                 <a
                   class="external-link"
-                  href="https://issuu.com/greenpeacechina/docs/2020_gp_hk_supermarket_plastics"
+                  href="https://www.greenpeace.org/hongkong/issues/plastics/update/18618/%e9%82%8a%e9%96%93%e8%b6%85%e5%b8%82%ef%bc%8c%e8%b5%b0%e5%a1%91%e8%a1%a8%e7%8f%be%e6%9c%80%e4%bb%a4%e4%ba%ba%e3%80%8c%e8%b7%8c%e7%9c%bc%e9%8f%a1%e3%80%8d/?ref=petition_link"
                   target="_blank"
                   rel="noopener noreferrer"
                 >點擊此處</a>查看完整報告。
@@ -166,6 +165,15 @@
                   class="font-normal text-sm"
                 >一同發聲，要求包括龍頭惠康在內的超市回應你的訴求：制定完整減塑藍圖、發展可重用包裝銷售模式、淘汰無謂塑膠包裝，並提供走塑購物選項，讓你「有得揀」。</p>
               </div>
+              <div class="enform-progress my-4">
+                <div class="overflow-hidden rounded shadow w-full bg-gray-200">
+                  <div
+                    class="transition-all font-bold text-white bg-gporangelight py-1 text-center"
+                    v-bind:style="{width: `${this.signupProgress}%` }"
+                    v-show="this.participants && this.goal"
+                  >{{this.participants.toLocaleString()}} 人已聯署</div>
+                </div>
+              </div>
               <div class="form-body enform"></div>
             </div>
           </aside>
@@ -174,6 +182,9 @@
       <div
         class="mobile-button md:hidden tracking-wide shadow overflow-hidden fixed w-full flex items-center justify-center px-4 py-2"
       >
+        <div class="scroll-indicator">
+          <div class="progress-bar" v-bind:style="{width: `${this.scrollDepth}%` }"></div>
+        </div>
         <button class="form-button" v-scroll-to="'#enform'">{{ mobileBtnText }}</button>
       </div>
     </main>
@@ -329,13 +340,10 @@ export default {
       currentPage: 0,
       showMobileButton: true,
       showFormModal: true,
-      formSumitted: false
+      formSumitted: false,
+      participants: 0,
+      goal: 0
     };
-  },
-  computed: {
-    mobileBtnText() {
-      return this.formSubmitted ? "感謝您聯署超市走塑" : "立即聯署";
-    }
   },
   methods: {
     scrollIntoView(evt) {
@@ -351,6 +359,22 @@ export default {
       this.isMobile = isMobile;
       return isMobile;
     },
+    getDocumentHeight() {
+      return Math.max(
+        document.body.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.clientHeight,
+        document.documentElement.scrollHeight,
+        document.documentElement.offsetHeight
+      );
+    },
+    getWindowHeight() {
+      return (
+        window.innerHeight ||
+        document.documentElement.clientHeight ||
+        document.getElementsByTagName("body")[0].clientHeight
+      );
+    },
     getScrollTop() {
       return window.pageYOffset !== undefined
         ? window.pageYOffset
@@ -365,7 +389,23 @@ export default {
       this.scrollDepth = Math.round(scroll * 100);
     }
   },
+  computed: {
+    mobileBtnText() {
+      return this.formSubmitted ? "感謝您聯署超市走塑" : "立即聯署";
+    },
+    innerHeight() {
+      return this.getDocumentHeight() - this.getWindowHeight();
+    },
+    signupProgress() {
+      return this.participants
+        ? Math.round((this.participants / this.goal) * 100)
+        : 0;
+    }
+  },
   created() {
+    NProgress.start();
+    window.addEventListener("scroll", this.handleScroll);
+    //
     const page = window.pageJson.pageNumber;
     this.currentPage = page;
     if (page == 2) {
@@ -386,9 +426,37 @@ export default {
     createBirthYearList();
     appendForm();
     decorForm();
+    //
+    const widgetEndPoint =
+      "https://cors-anywhere.small-service.gpeastasia.org/https://act.greenpeace.org/page/widget/434094";
+    fetch(widgetEndPoint)
+      .then(resp => resp.json())
+      .then(data => {
+        let campaignList = data.data.rows;
+        let totalRegistration = 0;
+        campaignList.forEach(campaign => {
+          totalRegistration =
+            totalRegistration + parseInt(campaign.columns[4].value);
+        });
+        this.participants = totalRegistration;
+        return data.jsonContent;
+      })
+      .then(jsonContent => {
+        this.goal = JSON.parse(jsonContent).goal;
+        // console.log(this.participants);
+        // console.log(this.goal);
+        // console.log(this.signupProgress);
+      })
+      .catch(error => {
+        this.participants = 0;
+      });
     this.$nextTick(() => {
       NProgress.done();
     });
+  },
+  destroyed() {
+    document.removeEventListener("scroll", this.handleScroll);
+    alert("Please refresh the page");
   }
 };
 </script>
