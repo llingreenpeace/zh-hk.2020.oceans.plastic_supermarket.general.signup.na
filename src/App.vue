@@ -222,7 +222,7 @@
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="http://www.greenpeace.org/hk/about/contact/"
+                href="https://www.greenpeace.org/hongkong/about/contact/"
                 alt="聯絡我們"
               >聯絡我們</a>
               <a
