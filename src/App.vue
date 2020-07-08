@@ -38,15 +38,15 @@
                 class="text"
               >一同發聲，要求包括龍頭惠康在內的超市回應你的訴求：制定完整減塑藍圖、發展可重用包裝銷售模式、淘汰無謂塑膠包裝，並提供走塑購物選項，讓你「有得揀」。</p>
             </div>
-            <div class="bg-gray-100 px-4 py-2 bg-gray-100">
+            <div class="bg-gray-100 py-2 bg-gray-100">
               <div class="s-logo-wrapper bg-white rounded mt-2 px-2 py-2 overflow-hidden">
                 <div class="flex flex-wrap justify-around items-center">
                   <div
-                    class="lg:w-40 lg:h-40 w-32 h-32 s-logo lg:m-4 m-2 flex items-center justify-center"
-                    v-for="(logo, index) in supermarketLogos"
+                    class="w-24 h-24 s-logo lg:m-4 m-2 flex items-center justify-center"
+                    v-for="(logo, index) in supermarketImages"
                     :key="index"
                   >
-                    <img :src="logo.logo" class="w-full s-logo" :alt="logo.name" />
+                    <img :src="logo" class="w-full s-logo" :alt="logo.name" />
                   </div>
                 </div>
               </div>
@@ -222,7 +222,7 @@
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="http://www.greenpeace.org/hk/about/contact/"
+                href="https://www.greenpeace.org/hongkong/about/contact/"
                 alt="聯絡我們"
               >聯絡我們</a>
               <a
@@ -250,7 +250,7 @@ NProgress.configure({
   showSpinner: false
 });
 import { mainShare, whatsAppShare } from "@/share.js";
-import { supermarkets, supermarketLogos } from "@/supermarkets.js";
+import { supermarkets, supermarketImages } from "@/supermarkets.js";
 import Ranking from "./components/Ranking.vue";
 //
 const createBirthYearList = function() {
@@ -334,7 +334,7 @@ export default {
   data() {
     return {
       supermarkets: supermarkets,
-      supermarketLogos: supermarketLogos,
+      supermarketImages: supermarketImages,
       isMobile: false,
       scrollDepth: 0,
       currentPage: 0,

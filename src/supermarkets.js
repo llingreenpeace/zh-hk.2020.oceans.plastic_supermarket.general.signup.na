@@ -6,6 +6,15 @@ import aeonLogo from "@/assets/supermarkets/aeon-logo.png";
 import msLogo from "@/assets/supermarkets/marksandspencer-logo2.jpg";
 import vanguardLogo from "@/assets/supermarkets/vanguard-logo2.jpg";
 //
+import wellcomeLogo from "@/assets/supermarkets/wellcome-logo.png";
+import parknshopLogo from "@/assets/supermarkets/parknshop-logo.jpg";
+import marketplaceLogo from "@/assets/supermarkets/marksandspencer-logo2.jpg";
+import tasteLogo from "@/assets/supermarkets/taste-logo.jpg";
+import fusionLogo from "@/assets/supermarkets/fusion-logo.png";
+import internationalLogo from "@/assets/supermarkets/international-logo.jpg";
+import uselectLogo from "@/assets/supermarkets/uselect-logo.png";
+import marksandspencerLogo from "@/assets/supermarkets/marksandspencer-logo.png";
+//
 const supermarkets = {
   Watson: {
     name: "屈臣氏集團",
@@ -168,7 +177,21 @@ const supermarkets = {
     }
   }
 };
-
+const supermarketImages = [
+  wellcomeLogo,
+  parknshopLogo,
+  marketplaceLogo,
+  tasteLogo,
+  fusionLogo,
+  internationalLogo,
+  yataLogo,
+  citySuperLogo,
+  aeonLogo,
+  vanguardLogo,
+  uselectLogo,
+  marksandspencerLogo
+];
+//
 let supermarketLogos = [];
 for (let sm in supermarkets) {
   supermarketLogos.push({
@@ -179,4 +202,4 @@ for (let sm in supermarkets) {
 }
 supermarketLogos.sort((a, b) => a.supermarket.localeCompare(b.supermarket));
 
-export { supermarkets, supermarketLogos };
+export { supermarkets, supermarketImages };
