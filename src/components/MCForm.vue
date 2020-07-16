@@ -13,6 +13,7 @@
 							placeholder="電郵地址 Email Address"
 						/>
 						<span class="en__field__error" v-if="errors.length">{{ errors[0] }}</span>
+						<span class="email-suggestion" v-if="emailSuggestion" @click="replaceEmailWithSuggestion">您想輸入的是 <strong>{{emailSuggestion}}</strong> 嗎？</span>
 					</ValidationProvider>
 				</div>
 
@@ -53,7 +54,7 @@
 						<label class="form-label">手提號碼 Phone Number</label>
 
 
-							<div class="w-16 mb-4 md:mb-0 md:pr-1">
+							<div class="w-16 mb-4 md:mb-0 pr-1">
 								<ValidationProvider rules="required" name="ccode" vid="ccode" v-slot="{ classes, errors }">
 									<select name="MobileCountryCode" v-model="MobileCountryCode" :class="['form-input', classes]">
 										<option value="852">+852</option>
@@ -65,7 +66,7 @@
 								</ValidationProvider>
 							</div>
 
-							<div class="flex-1  md:pl-2">
+							<div class="flex-1 pl-2">
 								<ValidationProvider rules="required|phone-number:@ccode" v-slot="{ classes, errors }">
 									<input
 										name="MobilePhone"
@@ -139,13 +140,14 @@
 <script>
 	import { ValidationProvider, ValidationObserver, extend, configure } from 'vee-validate';
 	import { required, email } from 'vee-validate/dist/rules';
+	import Mailcheck from "mailcheck";
 
 	// definitions
 	let phoneRules = {
 		"852": {
 			"country":"+852",
 			"code":"+852",
-			"pattern":"[2,3,5,6,8,9]{1}[0-9]{7}",
+			"pattern":"^[2,3,5,6,8,9]{1}[0-9]{7}$",
 			"help":"Mobile number should be 8 digits and start with 2, 3, 5, 6, 8 or 9",
 			"maxlength":8
 
@@ -153,21 +155,21 @@
 		"853": {
 			"country":"+853",
 			"code":"+853",
-			"pattern":"[6]{1}[0-9]{7}",
+			"pattern":"^[6]{1}[0-9]{7}$",
 			"maxlength":8
 
 		},
 		"886": {
 			"country":"+886",
 			"code":"+886",
-			"pattern":"[9]{1}[0-9]{8}",
+			"pattern":"^0?[9]{1}[0-9]{8}$",
 			"maxlength":9
 
 		},
 		"86": {
 			"country":"+86",
 			"code":"+86",
-			"pattern":"[1]{1}[0-9]{10}",
+			"pattern":"^[1]{1}[0-9]{10}$",
 			"maxlength":11
 
 		}
@@ -195,6 +197,24 @@
 		message: '請填上有效手提號碼'
 	});
 
+	// for email correctness
+	let domains = [
+		"me.com",
+		"outlook.com",
+		"netvigator.com",
+		"cloud.com",
+		"live.hk",
+		"msn.com",
+		"gmail.com",
+		"hotmail.com",
+		"ymail.com",
+		"yahoo.com",
+		"yahoo.com.tw",
+		"yahoo.com.hk"
+	];
+	let topLevelDomains = ["com", "net", "org"];
+
+
 	const selectableYears = []
 	const nowYear = new Date().getFullYear()
 	for (var i=nowYear; i>nowYear-100; i--) {
@@ -214,12 +234,45 @@
 			MobilePhone: "",
 			OptIn: true,
 			MobileCountryCode: "852",
-			years: selectableYears
+			years: selectableYears,
+			emailSuggestion: null
 		}),
+		watch: {
+			Email: function (v) {
+				Mailcheck.run({
+					email: v,
+					domains: domains, // optional
+					topLevelDomains: topLevelDomains, // optional
+					suggested: (suggestion) => {
+						this.emailSuggestion = suggestion.full
+					},
+					empty: () => {
+						this.emailSuggestion = null
+					}
+				});
+
+			},
+		},
 		methods: {
+			replaceEmailWithSuggestion () {
+				this.Email = this.emailSuggestion
+			},
 			_onSubmit ()  {
 				this.$emit('onSubmit', this.$data);
 			}
 		}
 	}
 </script>
+
+<style lang="scss">
+	.flex {display: flex;}
+	.flex-1 {flex: 1 1 0%;}
+
+	.email-suggestion {
+		font-size: 10px;
+		color: #F9AA62;
+		display: block;
+		cursor: pointer;
+		margin-left: 0.5rem;
+	}
+</style>

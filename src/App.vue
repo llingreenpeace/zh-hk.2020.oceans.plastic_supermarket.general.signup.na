@@ -159,7 +159,7 @@
         <slide-x-right-transition :duration="400">
           <aside class="aside-enform enform relative">
             <div id="enform" class="form-container form-container--sticky sticky">
-              <div class="form-header text-white mt-2 mb-4 text-2xl text-center font-bold">
+              <div class="form-header text-white mt-2 mb-4 text-2xl text-center font-bold" v-if="!formSubmitted">
                 <h2 class="mb-2">加快超市走塑 急需你的力量</h2>
                 <p
                   class="font-normal text-sm"
@@ -250,6 +250,10 @@
 </template>
 
 <script>
+import NProgress from "nprogress";
+NProgress.configure({
+  showSpinner: false
+});
 
 import { supermarkets, supermarketImages } from "@/supermarkets.js";
 import Ranking from "./components/Ranking.vue";
@@ -351,6 +355,7 @@ export default {
             mcHelper.sendPetitionTracking("2020-supermarket")
             this.formSubmitted = true
             this.participants += 1
+            document.querySelector(".enform").scrollIntoView();
           } else {
             console.error(response)
           }
@@ -380,6 +385,7 @@ export default {
     }
   },
   created() {
+    NProgress.start();
     window.addEventListener("scroll", this.handleScroll);
   },
   mounted() {
@@ -392,6 +398,10 @@ export default {
     setTimeout(() => { // for the animation
       this.participants = numSignup;
     }, 1000)
+
+    this.$nextTick(() => {
+      NProgress.done();
+    });
   },
   destroyed() {
     document.removeEventListener("scroll", this.handleScroll);

@@ -32,9 +32,6 @@ export default {
 </script>
 
 <style lang="scss">
-.form-header{
-	display: none;
-}
 .thankyou {
 	padding-top: 20px;
 	padding-bottom: 20px;

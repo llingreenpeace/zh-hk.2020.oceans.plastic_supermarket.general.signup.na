@@ -10,15 +10,15 @@ export const fetchFormInputs = (form) => {
 
 	let obj = {}
 	form.querySelectorAll("input").forEach(function (el, idx) {
-	  let v = null
+		let v = null
 
-	  if (el.type==="checkbox") {
-	    v = el.checked
-	  } else {
-	    v = el.value
-	  }
+		if (el.type==="checkbox") {
+			v = el.checked
+		} else {
+			v = el.value
+		}
 
-	  obj[el.name] = v
+		obj[el.name] = v
 	})
 	form.querySelectorAll("select").forEach(function (el, idx) {
 		obj[el.name] = el.options[el.selectedIndex].value
@@ -57,75 +57,75 @@ export const getNumSignupsAndTarget = () => {
 /*
 
 #page-loading {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0,0,0,0.8);
-    z-index: 10001;
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: rgba(0,0,0,0.8);
+		z-index: 10001;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-    opacity: 1;
-    transition: opacity 1s;
+		opacity: 1;
+		transition: opacity 1s;
 }
 #page-loading.hide {
-    opacity: 0;
-    transition: opacity 1s;
+		opacity: 0;
+		transition: opacity 1s;
 }
 
 #page-loading .lds-ellipsis {
-    display: inline-block;
-    position: relative;
-    width: 80px;
-    height: 80px;
+		display: inline-block;
+		position: relative;
+		width: 80px;
+		height: 80px;
 }
 #page-loading .lds-ellipsis div {
-    position: absolute;
-    top: 33px;
-    width: 13px;
-    height: 13px;
-    border-radius: 50%;
-    background: #6c0;
-    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+		position: absolute;
+		top: 33px;
+		width: 13px;
+		height: 13px;
+		border-radius: 50%;
+		background: #6c0;
+		animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 #page-loading .lds-ellipsis div:nth-child(1) {
-    left: 8px;
-    animation: lds-ellipsis1 0.6s infinite;
+		left: 8px;
+		animation: lds-ellipsis1 0.6s infinite;
 }
 #page-loading .lds-ellipsis div:nth-child(2) {
-    left: 8px;
-    animation: lds-ellipsis2 0.6s infinite;
+		left: 8px;
+		animation: lds-ellipsis2 0.6s infinite;
 }
 #page-loading .lds-ellipsis div:nth-child(3) {
-    left: 32px;
-    animation: lds-ellipsis2 0.6s infinite;
+		left: 32px;
+		animation: lds-ellipsis2 0.6s infinite;
 }
 #page-loading .lds-ellipsis div:nth-child(4) {
-    left: 56px;
-    animation: lds-ellipsis3 0.6s infinite;
+		left: 56px;
+		animation: lds-ellipsis3 0.6s infinite;
 }
 @keyframes lds-ellipsis1 {
-    0% {transform: scale(0); }
-    100% {transform: scale(1); }
+		0% {transform: scale(0); }
+		100% {transform: scale(1); }
 }
 @keyframes lds-ellipsis3 {
-    0% {transform: scale(1); }
-    100% {transform: scale(0); }
+		0% {transform: scale(1); }
+		100% {transform: scale(0); }
 }
 @keyframes lds-ellipsis2 {
-    0% {transform: translate(0, 0); }
-    100% {transform: translate(24px, 0); }
+		0% {transform: translate(0, 0); }
+		100% {transform: translate(24px, 0); }
 }
  */
 export const showFullPageLoading = () => {
 	if ( !document.querySelector("#page-loading")) {
 		document.querySelector("body").insertAdjacentHTML('beforeend', `
 			<div id="page-loading" class="hide">
-			  <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+				<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 			</div>`);
 	}
 
@@ -155,17 +155,17 @@ export const sendPetitionTracking = (eventLabel, eventValue) => {
 	window.dataLayer = window.dataLayer || [];
 
 	window.dataLayer.push({
-	    'event': 'gaEvent',
-	    'eventCategory': 'petitions',
-	    'eventAction': 'signup',
-	    'eventLabel': eventLabel,
-	    'eventValue' : eventValue
+			'event': 'gaEvent',
+			'eventCategory': 'petitions',
+			'eventAction': 'signup',
+			'eventLabel': eventLabel,
+			'eventValue' : eventValue
 	});
 
 	window.dataLayer.push({
-	    'event': 'fbqEvent',
-	    'contentName': eventLabel,
-	    'contentCategory': 'Petition Signup'
+			'event': 'fbqEvent',
+			'contentName': eventLabel,
+			'contentCategory': 'Petition Signup'
 	});
 }
 

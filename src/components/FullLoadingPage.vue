@@ -1,6 +1,6 @@
 <template>
 	<div id="page-loading" v-if="isShown" :class="{hide: !isActive}" >
-	  <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+		<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 	</div>
 </template>
 
@@ -13,20 +13,20 @@
 			isShown: false
 		}),
 		watch: {
-		  isActive: {
-		  	immediate: true,
-		  	handler (val, oldVal) {
-		  		clearTimeout(timeoutHandler)
+			isActive: {
+				immediate: true,
+				handler (val, oldVal) {
+					clearTimeout(timeoutHandler)
 
-		  		if (val) {
-		  			this.isShown = true
-		  		} else {
-		  			setTimeout( () => {
-		  				this.isShown = false
-		  			}, 1100);
-		  		}
-		  	}
-		  }
+					if (val) {
+						this.isShown = true
+					} else {
+						setTimeout( () => {
+							this.isShown = false
+						}, 1100);
+					}
+				}
+			}
 		}
 	}
 </script>
