@@ -10,7 +10,8 @@
 
 		<p class="text">全賴您的支持，三年來我們在走塑項目上，成功促使零售商淘汰微塑膠、揭示香港海域及河道的塑膠污染實況、並促使快餐業界如大家樂、大快活開始採取減塑措施！此外，我們成功招募近400間餐廳加入「全城走塑」行列，提供走塑友善措施。您的長期捐助，將讓我們在2020年有足夠資源與學校合辦「走塑學堂」、延續「尋找走塑店鋪」活動， 達成全港1,000間店鋪提供走塑友善措施的目標！</p>
 
-		<p class="actions"><a class="btn action-button button--support ty-page-donation-link" href="https://act.greenpeace.org/page/55748/donate/1?ref=2020-supermarket-thankyou_page" target="_blank">支持我們</a></p>
+		<!--<p class="actions"><a class="btn action-button button--support ty-page-donation-link" href="https://supporter.ea.greenpeace.org/hk/s/donate?ref=2020-supermarket-thankyou_page" target="_blank">支持我們</a></p>-->
+		<p class="actions"><a class="btn action-button button--support ty-page-donation-link" href="https://supporter.ea.greenpeace.org/hk/s/donate?campaign=plastics&ref=2020-supermarket-thankyou_page" target="_blank">支持我們</a></p>
 	</div>
 </template>
 

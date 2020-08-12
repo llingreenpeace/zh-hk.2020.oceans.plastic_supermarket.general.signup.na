@@ -33,8 +33,8 @@ const FTPS = require('ftps');
 
 // definitions
 let buildFolder = path.join(__dirname, "build")
-	EndpointURL = "https://cloud.greenhk.greenpeace.org/up-dev-endpoint",
-	CampaignId = "7010k000000iJ7aAAE",
+	EndpointURL = "https://cloud.greenhk.greenpeace.org/petition-pp",
+	CampaignId = "7012u000000Ou6vAAC",
 	DonationPageUrl = "https://www.greenpeace.org/eastasia/", // not used now
 	interests = ["Plastics"], // Arctic, Climate, Forest, Health, Oceans, Plastics
 	ftpConfigName = "ftp_hk", // refer to ~/.npm-en-uploader-secret
@@ -79,7 +79,7 @@ const upload_folder = function (settings, localDir) {
 
 // patch form contents
 let formTmpl =
-	`<form method="post" action="%%=v(@EndpointURL)=%%" class="" id="mc-form">
+	`<form method="post" action="%%=v(@EndpointURL)=%%" class="" id="mc-form" style="display:none;">
 		<input placeholder="FirstName" name="FirstName" type="text" value="">
 		<input placeholder="LastName" name="LastName" type="text" value="">
 		<input placeholder="Email" name="Email" type="email" value="">
@@ -178,9 +178,11 @@ fs.writeFileSync(path.join(__dirname, "build", 'index.mc.html'), content)
 console.log('content patched')
 
 // upload the folder to FTP
+/*
 let raw = fs.readFileSync(path.join(os.homedir(), ".npm-en-uploader-secret"));
 let secrets = JSON.parse(raw);
 
 let ftpSetting = secrets[ftpConfigName]
 ftpSetting["remoteDir"] = ftpRemoteDir
 upload_folder(ftpSetting, buildFolder)
+*/
